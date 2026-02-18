@@ -1,4 +1,5 @@
 const mineflayer = require('mineflayer');
+const readline = require('readline'); // Konsol okumak için gerekli modül
 let config;
 
 // --- AYARLARI YÜKLE ---
@@ -10,8 +11,31 @@ try {
     process.exit(1);
 }
 
+// Bot değişkenini dışarıda tanımlıyoruz ki konsol erişebilsin
+let bot;
+
+// --- KONSOL OKUMA SİSTEMİ (!sohbet İÇİN) ---
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.on('line', (input) => {
+    // Gelen komut !sohbet ile başlıyor mu?
+    if (input.startsWith('!sohbet ')) {
+        const mesaj = input.replace('!sohbet ', ''); // Komutu sil, sadece mesajı al
+        
+        if (bot && bot.entity) { // Bot oyunda mı kontrol et
+            bot.chat(mesaj);
+            console.log(`\x1b[35m[KONSOL -> OYUN]\x1b[0m ${mesaj}`);
+        } else {
+            console.log(`\x1b[31m[HATA]\x1b[0m Bot henüz oyuna girmedi, mesaj gönderilemedi.`);
+        }
+    }
+});
+
 function startBot() {
-    const bot = mineflayer.createBot({
+    bot = mineflayer.createBot({
         host: config.ip,
         port: config.port,
         version: config.version,
@@ -40,6 +64,7 @@ function startBot() {
         isSpawned = true;
 
         console.log(`\x1b[32m[BAĞLANTI]\x1b[0m Sunucuya girildi!`);
+        console.log(`\x1b[90m[BİLGİ]\x1b[0m Sohbet etmek için konsola: !sohbet Mesajınız yazın.`);
 
         // 1. Adım: 5 saniye bekle -> /opskyblock yaz
         setTimeout(() => {
@@ -53,11 +78,13 @@ function startBot() {
             bot.chat(`/tpa ${config.sahip}`);
         }, 10000);
         
-        // 3. Adım: Anti-AFK (Düşmemesi için zıplama)
+        // 3. Adım: Anti-AFK
         setInterval(() => {
-            bot.setControlState('jump', true);
-            setTimeout(() => bot.setControlState('jump', false), 500);
-        }, 30000); // 30 saniyede bir zıplar
+            if(bot && bot.entity) {
+                bot.setControlState('jump', true);
+                setTimeout(() => bot.setControlState('jump', false), 500);
+            }
+        }, 30000);
     });
 
     // --- DÜŞERSE TEKRAR BAĞLAN ---
