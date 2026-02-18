@@ -1,4 +1,4 @@
-🤖 RoneBot Ordusu (v34) - Gelişmiş Minecraft Bot Altyapısı
+🤖 RoneBot Ordusu (v1.2) - Gelişmiş Minecraft Bot Altyapısı
 RoneBot Ordusu, Minecraft sunucularında (Özellikle 1.20.4 Skyblock/Survival) birden fazla hesabı aynı anda yönetmenizi, güvenli bir şekilde AFK bırakmanızı ve otomatik depolama işlemleri yapmanızı sağlayan, Anti-Cheat (Hile Koruması) dostu bir Node.js bot sistemidir.
 
 ✨ Öne Çıkan Özellikler
