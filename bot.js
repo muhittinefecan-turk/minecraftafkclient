@@ -20,6 +20,24 @@ try {
     process.exit(1);
 }
 
+let config;
+try {
+    // Exe'nin çalıştığı klasörü bulur
+    const configPath = path.join(process.cwd(), 'config.json');
+    
+    // Dosyayı dışarıdan okur
+    const rawData = fs.readFileSync(configPath, 'utf8');
+    config = JSON.parse(rawData);
+    
+    console.log(`\x1b[32m[SİSTEM]\x1b[0m Ayarlar başarıyla yüklendi.`);
+    console.log(`\x1b[36m[BİLGİ]\x1b[0m ${config.bots.length} bot hazırlanıyor...`);
+} catch (error) {
+    console.error(`\x1b[41m[HATA]\x1b[0m 'config.json' dosyası bulunamadı!`);
+    console.error(`Lütfen .exe dosyasının yanına config.json dosyasını koyduğundan emin ol.`);
+    console.log("Hata Detayı:", error.message);
+    process.exit(1); // Programı kapat
+}
+
 // --- SABİT AYARLAR ---
 const serverConfig = config.server;
 const anaHesap = config.auth.owner; 
