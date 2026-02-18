@@ -1,8 +1,22 @@
 {
-  "ip": "play.ronemacraft.com",
-  "port": 25565,
-  "version": "1.20.4",
-  "bot_ismi": "BotunAdi",
-  "sifre": "BotunSifresi123",
-  "sahip": "SeninOyunAdin"
+  "server": {
+    "host": "play.ronemacraft.com",
+    "port": 25565,
+    "version": "1.20.4"
+  },
+  "auth": {
+    "owner": "SİZİN_OYUN_İSMİNİZ",
+    "global_password": "ORTAK_ŞİFRE",
+    "specific_passwords": {
+        "ozel_bot_adi_1": "bunun_sifresi_farkli123",
+        "DepoBotu": "gizli_sifre456"
+    }
+  },
+  "bots": [
+    "BotHesap1",
+    "BotHesap2",
+    "BotHesap3",
+    "ozel_bot_adi_1",
+    "DepoBotu"
+  ]
 }
