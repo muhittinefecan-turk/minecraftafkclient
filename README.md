@@ -77,15 +77,25 @@ Botları yönetmek için oyun içinden sahibin (owner) botlardan birine Özel Me
 
 Komut,Açıklama
 !durum,"Botların parasını, envanter doluluğunu ve PV (Sanal Sandık) durumunu raporlar."
+
 !takip,Sahibini takip etmeye başlar. Mesafe çok açılırsa veya bot sizi göremezse TPA atar.
+
 !git,Sahibinin yanına gider (TPA atar) ve orada bekler. Takip etmez.
+
 !dur,"ACİL DURDURMA. Botlar tüm eylemleri iptal eder, takibi bırakır ve olduğu yerde kalır."
+
 !afk,Botları /warp afk noktasına gönderir ve olduğu yerde zıplatır.
+
 !saldır,Etraftaki düşman yaratıklara (Mob) saldırmaya başlar.
+
 !pvotodoldur,Envanterdeki eşyaları sırasıyla PV'lere doldurur. (Yavaş & Güvenli Mod)
+
 !pvbosalt,PV'lerdeki eşyaları alır ve sahibinin önüne atar. (Yavaş & Güvenli Mod)
+
 !envanterbosalt,Botun üzerindeki eşyaları sahibinin önüne atar.
+
 !paragönder,Bot üzerindeki tüm parayı sahibine (owner) gönderir.
+
 !pvotokapat,Otomatik PV doldurma döngüsünü kapatır.
 
 🖥️ Konsol Komutları
